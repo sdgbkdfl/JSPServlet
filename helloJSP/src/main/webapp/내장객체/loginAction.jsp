@@ -18,7 +18,7 @@
 			out.print("로그인 성공");
 			response.sendRedirect("gogreen.jsp?name="+id);
 		%>
-			// html출력
+			<!-- html출력 --> 
 			<h1>로그인 성공</h1>	
 	<% 	
 		}else{

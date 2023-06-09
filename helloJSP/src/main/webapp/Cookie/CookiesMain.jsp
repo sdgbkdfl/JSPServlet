@@ -9,16 +9,18 @@
 <body>
 	<h1>1.쿠키 설정🍪 </h1>
 	<% 
-	Cookie cookie = new Cookie("myCookie","내가만든쿠키");
-	
-	//적용할 경로
-	cookie.setPath(request.getContextPath());
-	
-	//쿠키 유지 시간(초단위)
-	cookie.setMaxAge(3600);
-	
-	//response 객체에 추가
-	response.addCookie(cookie);
+		Cookie cookie = new Cookie("myCookie","내가만든쿠키");
+		
+		//한글깨짐 문제 →
+		
+		//적용할 경로
+		cookie.setPath(request.getContextPath());
+		
+		//쿠키 유지 시간(초단위)
+		cookie.setMaxAge(3600);
+		
+		//response 객체에 추가
+		response.addCookie(cookie);
 	%>
 </body>
 </html>

@@ -7,7 +7,7 @@
 <title>login</title>
 </head>
 <body>
-<form action="logindAction.jsp" method="post">
+<form action="loginAction.jsp" method="post">
 	 <% 
     	String name = request.getParameter("name");
     	if(name != null && !name.equals("")){
