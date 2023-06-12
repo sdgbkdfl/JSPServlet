@@ -13,8 +13,8 @@
 	 	String userId = cookieManager.readCookie(request,"userid");
 	 
 	 
-	 	//쿠키에 저장된 아이디가 있다면 id필드의 value속성에 아이디 값을 넣어줌
-	 	//저장된 아이디 보여주기
+ 	//쿠키에 저장된 아이디가 있다면 id필드의 value속성에 아이디 값을 넣어줌
+ 	//저장된 아이디 보여주기
 	 /*
 	 	Cookie[] cookies = request.getCookies();
 	 	String userid ="";

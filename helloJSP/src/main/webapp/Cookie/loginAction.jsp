@@ -1,3 +1,5 @@
+<%@page import="dao.MemberDao"%>
+<%@page import="dto.Member"%>
 <%@page import="util.cookieManager"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -10,9 +12,13 @@
 </head>
 <body>
 	<%
-		//name속성의 값을 매개값으로 넘겨주면 value속성의 값을 반환
 		String id = request.getParameter("userid");
 		String pw = request.getParameter("userpw");
+		
+		 MemberDao dao = new MemberDao();
+		 Member member = dao.login(id, pw);
+	 
+		//name속성의 값을 매개값으로 넘겨주면 value속성의 값을 반환
 		
 		//아이디 저장 체크박스
 		String saveYN = request.getParameter("save_check");
@@ -35,7 +41,7 @@
 			response.addCookie(cookie);
 		}
 		
-		if("login".equalsIgnoreCase(id) && "1234".equals(pw)){
+		if(member !=null && !member.getId().equals("")){
 			//로그인 성공
 			out.print("로그인 성공");
 			response.sendRedirect("login.jsp?name="+id);

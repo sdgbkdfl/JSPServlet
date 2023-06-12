@@ -28,4 +28,22 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>src/main/webapp/WEB-INF/lib/ojdbc8.jar</name>
+			<type>1</type>
+			<locationURI>copy_PARENT/library_0427/lib/ojdbc8.jar</locationURI>
+		</link>
+		<link>
+			<name>src/main/webapp/WEB-INF/lib/orai18n.jar</name>
+			<type>1</type>
+			<locationURI>copy_PARENT/library_0427/lib/orai18n.jar</locationURI>
+		</link>
+	</linkedResources>
+	<variableList>
+		<variable>
+			<name>copy_PARENT</name>
+			<value>file:/C:/Users/user/git/JSPServlet</value>
+		</variable>
+	</variableList>
 </projectDescription>

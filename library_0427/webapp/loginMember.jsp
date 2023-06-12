@@ -1,3 +1,4 @@
+<%@page import="com.library.service.MemberService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="com.library.vo.Member" %>
@@ -11,8 +12,13 @@
 </head>
 <body>
 <%
+
+	//세션
+	
 	if(session.getAttribute("member")!=null){
 		Member m =(Member)session.getAttribute("member");
+		out.print("<script>alert(''member.getId()'+님 환영합니다.');</script>");
+	
 %>
 <h1>사용자 메뉴</h1>
 	<ul>	
@@ -20,7 +26,8 @@
 		<li>도서반납</li>	
 	</ul>
 	
-<%=m.getId() %>님 환영합니다.	
+<%=m.getId() %>님 환영합니다.
+
 <!-- 버튼누르면 페이지 이동... -->
 <button onclick="location.href='logout.jsp'">로그아웃</button>
 <%	
