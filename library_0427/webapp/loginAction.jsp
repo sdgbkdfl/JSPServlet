@@ -43,7 +43,7 @@
 		//DB조회 결과 id/pw 일치하는 회원이 있으면 로그인 성공
 		if(member !=null && !member.getId().equals("")){
 			//로그인 성공
-			response.sendRedirect("login.jsp?name="+id);
+			//response.sendRedirect("login.jsp?name="+id);
 			
 			//쿠키 생성
 			//cookieManager.makeCookie(response,"userid",id,60*60);
@@ -55,8 +55,7 @@
 			if("admin".equals(member.getId())){
 				//관리자 페이지 호출
 				response.sendRedirect("loginAdmin.jsp");
-				
-				
+
 			}else{
 				//사용자 페이지 호출
 				response.sendRedirect("loginMember.jsp");				

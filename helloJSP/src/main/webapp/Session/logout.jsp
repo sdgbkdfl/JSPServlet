@@ -8,14 +8,15 @@
 </head>
 <body>
 <%
-	//세션 무효화
-	session.invalidate();
+	//방법1. 회원 인증 정보 삭제
+	session.removeAttribute("userId");
+	session.removeAttribute("member");
 
-	//세션 아이디 새로 발급;
-	request.getSession(true);
+	//방법2. 세션 무효화
+	session.invalidate();
 	
 	//메인페이지 이동
-	response.sendRedirect("gogreen.jsp");
+	response.sendRedirect("LoginForm.jsp");
 %>
 </body>
 </html>

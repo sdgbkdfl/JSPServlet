@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/gogreen.css">
 </head>
 <body>
+
 <%
 	//String error = request.getParameter("error");
 	//if(error != null && "Y".equals(error)){
