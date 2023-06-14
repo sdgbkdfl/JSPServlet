@@ -22,8 +22,7 @@
 	2. ~님 환영합니다 (제목태그 이용하여 출력)
 	3. header 영역의 로그인 링크를 로그아웃으로 수정
  -->
- 
- 
+  
 <%
 	//로그인 되었는지 확인
 	//세션.. object타입→형변환 
@@ -35,13 +34,13 @@
 	        <input type="submit" value="로그인하기" />
 	    </form>		
 <% 	} else {
-	String name="";
+		String name="";
 	if(session.getAttribute("member") != null){
 		Member member = (Member)session.getAttribute("member");
 		name = member.getName();
 	}
 %>
-<h2><%= name%>님 환영합니다.</h2>
+	<h2><%= name%>님 환영합니다.</h2>
 
 <%
 	}
