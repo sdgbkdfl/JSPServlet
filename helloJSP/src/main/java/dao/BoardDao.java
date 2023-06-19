@@ -92,7 +92,8 @@ public class BoardDao {
 				
 				board.setNum( rs.getString("num"));
 				board.setTitle(rs.getString("title"));
-				board.setContent(rs.getString("content"));
+				//el사용할때 줄바꿈처리를 서버에서 완료하여 가져옴
+				board.setContent(rs.getString("content").replace("\r\n", "<br/>"));
 				board.setId(rs.getString("id"));
 				board.setVisitcount ( rs.getString("visitcount"));
 				board.setPostdate ( rs.getString("postdate"));
