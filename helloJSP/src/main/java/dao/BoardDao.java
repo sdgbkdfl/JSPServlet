@@ -138,7 +138,7 @@ public class BoardDao {
 		 * int 반환 이유 : 결과값 건수를 반환하기 때문에
 		 * @return res
 		 * 
-		 * 메서드 호출 방법 까먹음
+		 * 
 		 */
 		public int insert(Board board) {
 			int res =0;
@@ -295,7 +295,8 @@ public class BoardDao {
 		}
 		
 		/*
-		 * 페이징 처리
+		 * 검색조건에 따라
+		 * 게시물 목록 조회
 		 */
 		public List<Board> getListPage(Criteria criteria){
 			//List<Board> list = new ArrayList<Board>();

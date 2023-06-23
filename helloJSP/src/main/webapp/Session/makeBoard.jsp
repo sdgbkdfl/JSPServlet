@@ -1,3 +1,4 @@
+<%@page import="dto.PageDto"%>
 <%@page import="dto.Criteria"%>
 <%@page import="dto.Board"%>
 <%@page import="java.util.List"%>
@@ -45,6 +46,7 @@
 
 <jsp:include page="Link.jsp"></jsp:include>
 <h2>목록보기(List)</h2>
+
 총건수 : <%= totalCnt %>
 
 <!--검색폼 -->
@@ -64,8 +66,9 @@
 		</td>
 	</tr>
 </table>
-
 </form>
+<!-- 검색폼 끝 -->
+
 <table border='1' width="90%">
 	<tr>
 		<th>번호</th>
@@ -88,8 +91,8 @@ if(boardList.isEmpty()){
 	for(Board board : boardList){
 %>
 	<tr align= "center">
-		<th><%=board.getNum() %></td>
-		<td><a href="view.jsp?num=<%=board.getNum()%>" ><%=board.getTitle() %></a></td>
+		<th><%=board.getNum() %></th>
+		<td><a href="view.jsp?num=<%=board.getNum()%>"><%=board.getTitle() %></a></td>
 		<td><%=board.getId() %> </td>
 		<td><%=board.getVisitcount() %> </td>
 		<td><%=board.getPostdate() %> </td>
@@ -115,17 +118,17 @@ if(boardList.isEmpty()){
 <%				
 	}
 %>
+
 <!-- 페이지 블럭 생성 시작 -->
 <%
 	PageDto pageDto = new PageDto(totalCnt, criteria);
-
 %>
-<table width="90%">
-<tr>
-	<td align="center">
-		<%@include file="PageNav.jsp" %>
-	</td>
-</tr>
+<table  border="1" width="90%">
+	<tr>
+		<td align="center">
+			<%@include file="Page.jsp" %>
+		</td>
+	</tr>
 </table>
 <!-- 페이지 블럭 생성 끝 -->
 </body>
