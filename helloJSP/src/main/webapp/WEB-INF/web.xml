@@ -96,7 +96,7 @@
 
 <servlet-mapping>
 	<servlet-name>MVCBoardList</servlet-name>
-	<url-pattern>/MVCBoard/List.do</url-pattern>
+	<url-pattern>/mvcboard/list.do</url-pattern>
 </servlet-mapping>
 
 	<!-- 글쓰기 -->
@@ -107,7 +107,7 @@
 
 <servlet-mapping>
 	<servlet-name>WriteController</servlet-name>
-	<url-pattern>/MVCBoard/Write.do</url-pattern>
+	<url-pattern>/mvcboard/write.do</url-pattern>
 </servlet-mapping>
 
 <!-- 업로드할 파일의 제한 용량을 컨텍스트 초기화 매개변수로 추가 -->

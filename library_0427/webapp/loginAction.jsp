@@ -52,7 +52,7 @@
 			//세션에 저장
 			session.setAttribute("member", member);
 			 		
-			if("admin".equals(member.getId())){
+			if("ADMIN".equals(member.getId())){
 				//관리자 페이지 호출
 				response.sendRedirect("loginAdmin.jsp");
 

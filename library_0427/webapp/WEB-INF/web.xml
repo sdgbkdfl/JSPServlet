@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" version="4.0">
-  <display-name>library_0427</display-name>
+  <display-name>MyJSP</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
@@ -9,4 +9,112 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <context-param>
+    <param-name>OracleDriver</param-name>
+    <param-value>oracle.jdbc.driver.OracleDriver</param-value>
+  </context-param>
+  <context-param>
+    <param-name>OracleUrl</param-name>
+    <param-value>jdbc:oracle:thin:@localhost:1521:orcl</param-value>
+  </context-param>
+  <context-param>
+    <param-name>OracleId</param-name>
+    <param-value>jsp</param-value>
+  </context-param>
+  <context-param>
+    <param-name>OraclePW</param-name>
+    <param-value>1234</param-value>
+  </context-param>
+  <context-param>
+    <param-name>INIT_PARAM</param-name>
+    <param-value>web.xml에 저장한 초기화 매개변수</param-value>
+  </context-param>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/내장객체/exception.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>500</error-code>
+    <location>/내장객체/exception.jsp</location>
+  </error-page>
+  
+  
+  <!-- 세션 유지 시간 (분단위 설정) -->
+  <session-config>
+  	<session-timeout>20</session-timeout>
+  </session-config>
+  
+  <!-- 필터를 이용한 인코딩 설정 -->
+  <filter>
+    <filter-name>SetCharacterEncodingFilter</filter-name>
+    <filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
+    <init-param>
+    <param-name>encoding</param-name>
+    <param-value>utf-8</param-value>
+    </init-param> 
+</filter>
+
+<filter-mapping>
+    <filter-name>SetCharacterEncodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+</filter-mapping>
+  
+
+<!-- 서블릿 등록 -->
+<servlet>
+	<servlet-name>MyServlet</servlet-name>
+	<servlet-class>servlet.MyServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+	<servlet-name>MyServlet</servlet-name>
+	<url-pattern>/Servlet/HelloServlet.do</url-pattern>
+</servlet-mapping>
+
+<!-- MemberAuth 회원인증 -->
+<servlet>
+	<servlet-name>MemberAuth</servlet-name>
+	<servlet-class>servlet.MemberAuth</servlet-class>
+	<!-- parameter 읽어오기 -->
+	<init-param>
+		<param-name>admin_id</param-name>
+		<param-value>test</param-value>
+	</init-param>
+</servlet>
+
+<servlet-mapping>
+	<servlet-name>MemberAuth</servlet-name>
+	<url-pattern>/Servlet/MemberAuth.mvc</url-pattern>
+</servlet-mapping>
+
+<!-- 게시판 리스트 조회 mvc2 방식 -->
+	<!-- 목록보기 -->
+<servlet>
+	<servlet-name>MVCBoardList</servlet-name>
+	<servlet-class>model2.mvcboard.ListController</servlet-class>
+</servlet>
+
+<servlet-mapping>
+	<servlet-name>MVCBoardList</servlet-name>
+	<url-pattern>/mvcboard/list.do</url-pattern>
+</servlet-mapping>
+
+	<!-- 글쓰기 -->
+<servlet>
+	<servlet-name>WriteController</servlet-name>
+	<servlet-class>model2.mvcboard.WriteController</servlet-class>
+</servlet>
+
+<servlet-mapping>
+	<servlet-name>WriteController</servlet-name>
+	<url-pattern>/mvcboard/write.do</url-pattern>
+</servlet-mapping>
+
+<!-- 업로드할 파일의 제한 용량을 컨텍스트 초기화 매개변수로 추가 -->
+  <context-param>
+    <param-name>maxPostSize</param-name>
+    <param-value>1024000</param-value>
+  </context-param>
+
+
 </web-app>

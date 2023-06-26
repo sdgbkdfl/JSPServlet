@@ -39,7 +39,7 @@ public class BoardDao {
 			
 			rs.close();
 		} catch (SQLException e) {
-			System.out.println("총 게시물의 수를 조회 하던중 예외가 발생 하였습니다.");
+			System.out.println("총 게시물의 수를 조회하던 중 예외가 발생 하였습니다.");
 			e.printStackTrace();
 		}
 		return totalCnt;

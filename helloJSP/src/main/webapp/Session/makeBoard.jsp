@@ -41,7 +41,11 @@
 	List<Board> boardList=dao.getListPage(criteria);
 	
 	//총건수 조회
-	int totalCnt = dao.getTotalCnt(criteria);	
+	int totalCnt = dao.getTotalCnt(criteria);
+	
+	//페이징 리스트
+	List<Board>list = dao.getListPage(criteria);
+	
 %>
 
 <jsp:include page="Link.jsp"></jsp:include>

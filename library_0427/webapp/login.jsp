@@ -35,7 +35,7 @@
  %>		
 	</div>
 </aside>
-<form action="loginAction.jsp" method="post">
+<form action="./login/LoginAction.do" method="post">
 	<div class='loginbox'>
     	<div id='login'>
             <input type="text" name="userid" id="userid" placeholder='ID를 입력해주세요.' value="<%=userId%>"><br>
