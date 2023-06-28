@@ -77,7 +77,7 @@
 	<!-- 하단메뉴(바로가기, 글쓰기) -->	
 	<table width="90%" border="1">
 		<tr align="center">
-	 		<td><%@include file="../Paging/PageNav.jsp" %> </td> 
+	 		<td><%@include file="../Paging/PageNavi.jsp" %> </td> 
 		</tr>	
 			<tr colspan="6">
 			<td align="right"><button type="button"  onclick="location.href='../mvcboard/write.do';"> 글쓰기 </button> </td>

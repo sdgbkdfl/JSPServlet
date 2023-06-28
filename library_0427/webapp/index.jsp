@@ -8,5 +8,6 @@
 </head>
 <body>
 <h1>Welcome</h1>
+경로 주지 않았을때
 </body>
 </html>

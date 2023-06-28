@@ -6,11 +6,14 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.oreilly.servlet.MultipartRequest;
+
 
 public class FileUtil {
 	/**
@@ -129,6 +132,28 @@ public class FileUtil {
 		if(file.exists()) {
 			file.delete();
 		}
+	}
+	
+	public static String fileNameChange(String saveDirectory, String fileName) {
+
+		
+		//첨부파일의 확장자
+		String ext = fileName.substring(fileName.lastIndexOf("."));
+		
+		
+		//H :0~23, S: millisencond
+		//현재시간을 파일이름으로 지정
+		String now = new SimpleDateFormat("yyyyMMdd_HmsS").format(new Date());
+		String oFileName = fileName.substring(0, fileName.lastIndexOf("."));
+		
+		
+		String newFileName = oFileName +"_" + now + ext;
+		
+		File oldFile = new File(saveDirectory+ File.separator + fileName);
+		File newFile = new File(saveDirectory+ File.separator + newFileName);
+		oldFile.renameTo(newFile);
+		
+		return newFileName;
 	}
 	
 

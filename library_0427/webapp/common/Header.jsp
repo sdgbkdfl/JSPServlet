@@ -5,7 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Header</title>
+ <link rel="stylesheet" href="../css/book.css">
 </head>
 <body>
 
@@ -13,21 +14,20 @@
 	userId : ${sessionScope.userId}
 	adminYN : ${sessionScope.adminYN}<br>
 	<!-- 관리자 --> 
-	<c:if test="${sessionScope.adminYN} eq 'Y'" var="res">
+	<c:if test="${sessionScope.adminYN eq 'Y'}" var="res">
 		<div>로고</div>
 		<div>
 			<a href=""> 도서관리</a>
 			<a href=""> 회원관리</a>
-		</div>
-			
+		</div>		
 		<div>Logout</div>
 	</c:if>
 		
 	<c:if test="${not res }">
 		<!-- 로그인 전 사용자 --> 
 		<c:if test="${empty sessionScope.userId}" var="res1">
-		<div>로그인</div>
-		</c:if>
+		<a href="../login.jsp">로그인</a>
+	</c:if>
 		
 		<!-- 일반회원 --> 
 		<c:if test="${not res1 }"><br>
