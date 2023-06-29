@@ -22,7 +22,7 @@ public class ConnectionUtil {
 		//접속정보
 									 //@ip:port:sid
 		String url = "jdbc:oracle:thin:@localhost:1521:orcl";
-		String id = "jsp";
+		String id = "Library";
 		String pw = "1234";
 		
 		//설정파일에 저장해서 가져오는 방식 해볼거임

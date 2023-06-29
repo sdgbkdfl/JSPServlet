@@ -87,8 +87,7 @@ public class BookDao {
 //				+ "			where 도서번호 = no "
 //				+ "			  and 대여여부='Y'),'N') rentyn "
 				+ "    , author "
-				+ "from book "
-				+ "order by no";
+				+ "from book ";
 		
 		// try ( 리소스생성 ) => try문이 종료되면서 리소스를 자동으로 반납
 		try (Connection conn = ConnectionUtil.getConnection();
@@ -100,10 +99,10 @@ public class BookDao {
 			while(rs.next()) {
 				String no = rs.getString(1);
 				String title = rs.getString(2);
-				String rentYN = rs.getString(3);
+				String rentyn = rs.getString(3);
 				String author = rs.getString(4);
 				
-				Book book = new Book(no, title, rentYN, author);
+				Book book = new Book(no, title, rentyn, author);
 				list.add(book);
 			}
 
@@ -167,11 +166,11 @@ public class BookDao {
 	 * 도서 업데이트
 	 * @return
 	 */
-	public int update(int no, String rentYN) {
+	public int update(int no, String rentyn) {
 		int res = 0;
 		
 		String sql = String.format
-		("update book set rentYN = '%s' where no = %d", rentYN ,no);
+		("update book set rentYN = '%s' where no = %d", rentyn ,no);
 	
 		// 실행될 쿼리를 출력해봅니다
 		//System.out.println(sql);
@@ -187,7 +186,7 @@ public class BookDao {
 	}
 
 	public String getRentYN(int bookNo) {
-		String rentYN = "";
+		String rentyn = "";
 		String sql = 
 				String.format(
 					"SELECT RENTYN FROM BOOK WHERE NO = %s", bookNo);
@@ -199,7 +198,7 @@ public class BookDao {
 			// 조회된 행이 있는지 확인
 			if(rs.next()) {
 				// DB에서 조회된 값을 변수에 저장
-				rentYN = rs.getString(1);
+				rentyn = rs.getString(1);
 			}
 			
 		} catch (SQLException e) {
@@ -207,7 +206,7 @@ public class BookDao {
 			e.printStackTrace();
 		}
 		
-		return rentYN;
+		return rentyn;
 	}
 
 	public int getTotalCnt(Criteria criteria) {
@@ -301,7 +300,7 @@ public class BookDao {
 	//3. 대여 테이블 insert(id)
 			int res = 0;
 		
-		    String sql1 = "SELECT 'R'||lpad(seq_대여.nextval, 5, 0) FROM dual"; // 시퀀스 번호 조회
+		    String sql1 = "SELECT 'R'||lpad(seq_대여.nextval||'', 5, 0) FROM dual"; // 시퀀스 번호 조회
 		    String sql2 = "UPDATE book set rentno = ?, rentyn='Y' WHERE no = ? AND (rentno IS NULL OR rentno = '')"; // 업데이트
 		    String sql3 = "INSERT INTO 대여 VALUES (?, ?, ?, 'Y', sysdate, null, sysdate + 14, null)";
 

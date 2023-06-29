@@ -38,8 +38,8 @@
 <form action="./login/LoginAction.do" method="post">
 	<div class='loginbox'>
     	<div id='login'>
-            <input type="text" name="userid" id="userid" placeholder='ID를 입력해주세요.' value="<%=userId%>"><br>
-                <input type="password" name="userpw" id="userpw" placeholder='PW를 입력해주세요.'>
+            <input type="text" name="userid" id="userid" placeholder='ID를 입력해주세요.' value="ADMIN"><br> <%--=userId--%>
+                <input type="password" name="userpw" id="userpw" placeholder='PW를 입력해주세요.' value="1234">
             </div>
             <div id='button'>
             	<input type="submit" value="로그인">

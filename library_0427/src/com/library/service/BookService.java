@@ -118,6 +118,12 @@ public class BookService {
 		Book book = dao.selectOne(no);
 		return book;
 	}
+
+
+	public void insert(String title, String author) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }
 

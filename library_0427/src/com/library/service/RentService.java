@@ -20,6 +20,7 @@ public class RentService {
 	public void rentBook(int no, String id) {
 		// 대여 가능 여부 체크
 		String rentYN = dao.getRentYN(no);
+		
 		if("Y".equals(rentYN)) {
 			System.err.println("이미 대여 중인 도서 입니다.");
 			return;

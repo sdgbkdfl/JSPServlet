@@ -58,7 +58,7 @@ public class BookController extends HttpServlet{
 			//response.sendRedirect("./list.book");
 			//sendRedirect : request영역을 공유하지 않으므로 삭제는 되나,
 			//request.setAttribute 받아오지 못함
-			request.getRequestDispatcher("./list.book").forward(request, response);
+			request.getRequestDispatcher("./List.jsp").forward(request, response);
 			
 		} else if(uri.indexOf("write") > 0) {
 			
@@ -105,7 +105,7 @@ public class BookController extends HttpServlet{
 					mr.getParameter("author")
 					);
 					
-			String ofile = mr.getFilesystemName("bookImg");
+			String ofile = mr.getFilesystemName("bookimg");
 			System.out.println("ofile" + ofile);
 			
 			if(ofile !=null && !"".equals(ofile)) {
@@ -146,9 +146,9 @@ public class BookController extends HttpServlet{
 			int res = bs.rentBook(book);
 			
 			if(res > 0) {
-				JSFunction.alertLocation(response, "./view.book?no="+book.getNo(), "대여를 완료하였습니다.");
+				JSFunction.alertLocation(response, "./View.book?no="+book.getNo(), "대여를 완료하였습니다.");
 			}else {
-			
+
 			JSFunction.alertBack(response, "오류가 발생하였습니다.");
 			}
 		}

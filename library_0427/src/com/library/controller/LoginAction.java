@@ -84,8 +84,8 @@ public class LoginAction extends HttpServlet {
 			if("ADMIN".equals(member.getId())){
 				session.setAttribute("adminYN", "Y");
 				//관리자 페이지 호출
-				response.sendRedirect("../book/List.jsp");
-				//request.getRequestDispatcher("../book/list.book").forward(request, response);
+				response.sendRedirect("../book/list.book"); // 상위 디렉토리로 이동하는 상대 경로
+				//request.getRequestDispatcher("../book/list.book").forward(request, response); //뷰페이지(jsp)경로 작성
 			}else{
 				//사용자 페이지 호출
 				response.sendRedirect("../loginMember.jsp");				

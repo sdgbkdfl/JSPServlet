@@ -19,7 +19,7 @@
 ${map.pageDto }
 <%@include file="/common/Header.jsp" %>
 <form name="viewForm " method="post">
-도서번호 : <input name="no" value="${dto.no }">
+도서번호 : <input name="no" value="${dto.no}">
 대여번호 : <input name="rentno" value="${dto.rentno }">
 
 <table border="1" width="90%">
@@ -32,16 +32,16 @@ ${map.pageDto }
     <!-- 게시글 정보 -->
     <tr>
         <td rowspan="3">
-        <img alt="${dto.title }이미지" width="200px" src="../images/bookImg/${dto.sfile }"></td>
-        <td>도서명</td> <td>${ dto.title }</td>
+        <img alt="${dto.title} 이미지" width="200px" src="../images/bookimg/${dto.ofile}"></td>
+        <td>도서명</td> <td>${ dto.sfile }</td>
         <td>작가</td> <td>${ dto.author }</td>   
     </tr>
     <tr>
 		<td>대여</td>
 		<c:choose>
-			<c:when test="${empty dto.rentno }">
+			<c:when test="${empty dto.rentno}">
 				<td colspan="3">
-				<button onclick="setAction('./rent.book')">대여하기</button>
+				<button onclick="setAction('./View.book')">대여하기</button>
 			</c:when>
 			<c:when test="${dto.id eq sessionScope.userId }">
 				<td><button onclick="setAction('./return.book')">반납하기</button>
