@@ -69,14 +69,12 @@
 		</tr>
 		
 	<!-- 리스트가 비어있는지 확인 -->	
-	<c:choose>
-		<c:when test="${empty map.list }">
+		<c:if test="${empty map.list }" var="res">
 			<tr>
 				<td colspan="5" align="center">등록된 게시물이 없습니다.</td>
 			</tr>
-		</c:when>
-		
-			<c:otherwise>
+		</c:if>
+			<c:if test="${not res }">
 				<c:forEach items="${map.list }" var="book" step="1">	
 				<tr align="center">
 					<!-- 삭제용 체크박스 -->
@@ -87,9 +85,8 @@
 					<td>${book.rentyn }</td>
 				</tr>	
 				</c:forEach>
-			</c:otherwise>
+			</c:if>
 			
-	</c:choose>
 	</table>
 	<table width="100%" border="1">
 		<tr align="center">

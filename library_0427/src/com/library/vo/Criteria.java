@@ -13,7 +13,7 @@ public class Criteria {
 	int startNo = 1;
 	int endNo = 10;
 	
-	
+
 	public Criteria(int pageNo) {
 		if(pageNo > 0) {
 			this.pageNo = pageNo;

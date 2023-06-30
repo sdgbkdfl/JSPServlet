@@ -89,7 +89,7 @@ public class BookService {
 	 * @param criteria
 	 * @return
 	 */
-	public Map<String, Object> getList(Criteria criteria) {
+	public Map<String, Object> getListPage(Criteria criteria) {
 		
 		Map<String, Object> map = new HashMap<>();
 		
@@ -124,6 +124,8 @@ public class BookService {
 		// TODO Auto-generated method stub
 		
 	}
+
+
 	
 }
 

@@ -27,7 +27,6 @@ public class BookController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	String uri = request.getRequestURI();
-	
 	System.out.println("요청 uri : "+ uri);
 	
 		if(uri.indexOf("list") > 0) {
@@ -35,9 +34,8 @@ public class BookController extends HttpServlet{
 			//검색조건 셋팅
 			Criteria criteria = new Criteria(request.getParameter("searchField"), request.getParameter("searchWord"), request.getParameter("pageNo"));
 			
-			
 			//list 조회 및 요청 객체에 저장
-			Map<String, Object> map= bs.getList(criteria);
+			Map<String, Object> map= bs.getListPage(criteria);
 			request.setAttribute("map", map);
 			
 			//포워딩
